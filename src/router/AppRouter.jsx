@@ -1,29 +1,16 @@
+import { useStore } from "react-redux";
 import { Navigate, Route, Routes } from "react-router-dom"
-import { LoginPage } from "../auth";
-
-const initialStatus = 'not-authenticated';
+import { LoginPage, RegisterPage } from "../auth";
 
 export const AppRouter = () => {
 
+    const { status } = useStore( state => state.auth );
+
     return (
         <Routes>
-            {
-                ( initialStatus === 'not-authenticated' )
-                    ? (
-                        <>
-                            <Route path='auth/*' element={ <LoginPage /> } />
-                            {/* <Route path='/*' element={ <Navigate to='auth/login' /> } /> */ }
-                        </>
-                    )
-                    : (
-                        <>
-                            {/* <Route path='/' element={ <CalendarPage /> } /> */ }
-                            {/* <Route path='/*' element={ <Navigate to='/' /> } /> */ }
-                        </>
 
-                    )
-
-            }
+            <Route path='/' element={ <LoginPage /> } />
+            <Route path='auth/register' element={ <RegisterPage /> } />
 
         </Routes>
     )

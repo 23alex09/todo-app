@@ -6,13 +6,12 @@ import { store } from "./store"
 
 export const App = () => {
   return (
-    // <Provider store={store}>
+    <Provider store={ store }>
+      <BrowserRouter>
+        <AppRouter />
+      </BrowserRouter>
+    </Provider>
 
-    // <BrowserRouter>
-    //   <AppRouter />
-    // </BrowserRouter>
-    // </Provider>
-    <LoginPage />
   )
 }
 
